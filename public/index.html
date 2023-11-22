@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">Y
+
   <title>CallBuc_Dial 📞📞</title>
   <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
@@ -25,6 +26,7 @@
             <select name="campaña" id="campaña">
               <option value="paneles">Paneles</option>
               <option value="seguros">Seguros</option>
+              <option value="admin">Admin</option>
             </select>
 
             <button type="submit" name="Ingresar" onclick="registrar()">Conectar</button>
@@ -37,7 +39,6 @@
           <hr>
           <div class="pie-form">
             <a href="#">¿Perdiste tu contraseña?</a>
-            <a href="#">¿No tienes cuenta? Regístrate</a>
             <hr>
             <a href="#">« Volver</a>
           </div>
@@ -56,13 +57,14 @@
       var password = document.getElementById("password").value;
       var campaña = document.getElementById("campaña").value;
 
-      if (
-        extensionesValidas.includes(usuario) &&
-        password === claveValida &&
-        campaña === campañaValida
-      ) {
-        // Registro exitoso, redireccionar a la siguiente página
-        window.location.href = "./index_1.html";
+      if (extensionesValidas.includes(usuario) && password === claveValida) {
+        if (campaña === "paneles") {
+          window.location.href = "./index_1.html";
+        } else if (campaña === "admin") {
+          window.location.href = "./index_Amd.html";
+        } else {
+          alert("Error en el registro. Campaña no válida.");
+        }
       } else {
         alert("Error en el registro. Verifica los datos ingresados.");
       }

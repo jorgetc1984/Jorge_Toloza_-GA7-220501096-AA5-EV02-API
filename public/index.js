@@ -46,7 +46,7 @@ function registrar(usuario, password, campaña) {
     campaña === campañaValida
   ) {
     // Registro exitoso, redireccionar a la segunda página
-    window.location.href = "file:///E:/Programacion2023/sena-app/public/index1.html";
+    window.location.href = "./index_1.html";
   } else {
     alert("Error en el registro. Verifica los datos ingresados.");
   }
@@ -54,5 +54,5 @@ function registrar(usuario, password, campaña) {
 
 // Otras funciones o código adicional puede ir aquí
 
-window.addEventListener("load", iniciarCallBucDial);
+window.addEventListener("load",);
 

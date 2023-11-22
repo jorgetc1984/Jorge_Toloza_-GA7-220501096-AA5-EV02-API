@@ -189,7 +189,9 @@
           </div>
         </div>
     </form>
+
   </section>
+
   <script>
     function activarLlamadaManual() {
       document.getElementById("numeroTelefono").disabled = false;
@@ -203,12 +205,171 @@
     function llamar() {
       var numeroTelefono = document.getElementById("numeroTelefono").value;
       // Aquí puedes implementar la lógica para realizar la llamada utilizando el número de teléfono
+      class MarcadorPredictivo {
+        // ... (tu código existente)
+
+        llamar() {
+          if (this.numeroActual !== '' && !this.llamadaActiva) {
+            console.log('Marcando ' + this.numeroActual + '...');
+            // Lógica para realizar la llamada utilizando alguna API o servicio de telefonía
+            this.realizarLlamadaAPI(this.numeroActual);
+          } else if (this.llamadaActiva) {
+            console.log('Ya hay una llamada activa.');
+          } else {
+            console.log('No se ha ingresado un número para marcar.');
+          }
+        }
+
+        realizarLlamadaAPI(numero) {
+          // Aquí deberías realizar la llamada utilizando una API o servicio de telefonía
+          // Puedes utilizar bibliotecas como Twilio, Plivo, etc.
+          // Ten en cuenta que necesitarías configurar estas bibliotecas y manejar las credenciales de manera segura.
+          // A continuación, se proporciona un ejemplo muy básico:
+          console.log('Realizando llamada a ' + numero + '...');
+          // En un entorno de producción, esta llamada debería ser manejada de manera segura y autenticada.
+        }
+      }
+
+      // Ejemplo de uso
+      const marcador = new MarcadorPredictivo();
+      marcador.agregarDigito('1');
+      marcador.agregarDigito('2');
+      marcador.llamar();
+
       console.log("Llamando al número: " + numeroTelefono);
     }
 
     function finalizarSesion() {
       window.location.href = "./index.html";
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Configuración de eventos al cargar el DOM
+      // ...
+
+      // Función para cerrar sesión
+      function finalizarSesion() {
+        window.location.href = "./index_Amd.html";
+      }
+
+      // Función para mostrar u ocultar opciones
+      function mostrarOpciones(idOpciones) {
+        var opciones = document.getElementById(idOpciones);
+        opciones.style.display = (opciones.style.display === "block") ? "none" : "block";
+      }
+
+      // Funciones para manejar usuarios y listas
+      function agregarUsuario() {
+        class MarcadorPredictivo {
+          constructor() {
+            this.numeroActual = '';
+            this.llamadaActiva = false;
+            this.usuarios = [];
+          }
+
+          // Otros métodos de la clase
+
+          // Método para agregar un usuario (teleoperador)
+          agregarUsuario(nombre, extension) {
+            const nuevoUsuario = { nombre, extension };
+            this.usuarios.push(nuevoUsuario);
+            console.log('Usuario agregado:', nuevoUsuario);
+          }
+
+          // Método para eliminar un usuario (teleoperador) por su nombre
+          eliminarUsuario(nombre) {
+            const indice = this.usuarios.findIndex(usuario => usuario.nombre === nombre);
+
+            if (indice !== -1) {
+              const usuarioEliminado = this.usuarios.splice(indice, 1)[0];
+              console.log('Usuario eliminado:', usuarioEliminado);
+            } else {
+              console.log('No se encontró el usuario con el nombre especificado.');
+            }
+          }
+
+          // Otros métodos de la clase
+        }
+
+        // Crear una instancia de MarcadorPredictivo
+        const marcador = new MarcadorPredictivo();
+
+      };
+
+      function eliminarUsuario() {
+        alert("Lógica para eliminar usuario");
+      }
+
+      function modificarUsuario() {
+        alert(class MarcadorPredictivo {
+          constructor() {
+            this.numeroActual = '';
+            this.llamadaActiva = false;
+            this.usuarios = [];
+          }
+
+          // Otros métodos de la clase
+
+          // Método para agregar un usuario (teleoperador)
+          agregarUsuario(nombre, extension) {
+            const nuevoUsuario = { nombre, extension };
+            this.usuarios.push(nuevoUsuario);
+            console.log('Usuario agregado:', nuevoUsuario);
+          }
+
+          // Método para eliminar un usuario (teleoperador) por su nombre
+          eliminarUsuario(nombre) {
+            const indice = this.usuarios.findIndex(usuario => usuario.nombre === nombre);
+
+            if (indice !== -1) {
+              const usuarioEliminado = this.usuarios.splice(indice, 1)[0];
+              console.log('Usuario eliminado:', usuarioEliminado);
+            } else {
+              console.log('No se encontró el usuario con el nombre especificado.');
+            }
+          }
+
+          // Otros métodos de la clase
+        }
+
+        // Crear una instancia de MarcadorPredictivo
+        const marcador = new MarcadorPredictivo();
+        );
+        );
+      }
+
+    function agregarLista() {
+      alert("Lógica para agregar lista");
+    }
+
+    function eliminarLista() {
+      alert("Lógica para eliminar lista");
+    }
+
+    function modificarLista() {
+      alert("Lógica para modificar lista");
+    }
+
+    // ... Código existente ...
+
+    // Funciones para agregar configuraciones
+    function agregarBaseDeDatos() {
+      const nombreBaseDeDatos = prompt('Ingrese el nombre de la Base de Datos:');
+      marcador.agregarBaseDeDatos(nombreBaseDeDatos);
+    }
+
+    function agregarTroncal() {
+      const nombreTroncal = prompt('Ingrese el nombre de la Troncal:');
+      marcador.agregarTroncal(nombreTroncal);
+    }
+
+    function agregarNumeroVirtual() {
+      const numeroVirtual = prompt('Ingrese el Número Virtual:');
+      marcador.agregarNumeroVirtual(numeroVirtual);
+    }
+    // . Código existente ...
+    );
+
 
     // Resto de las funciones JavaScript para la funcionalidad del formulario
     // ...

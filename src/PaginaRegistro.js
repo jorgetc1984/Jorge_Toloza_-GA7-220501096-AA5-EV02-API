@@ -34,6 +34,23 @@ function PaginaRegistro() {
         }
     }
 
+
+    function registrar(usuario, password, campaña) {
+        const extensionesValidas = ['server'];
+        const claveValida = '654321';
+        const campañaValida = 'Admin';
+
+        if (
+            extensionesValidas.includes(usuario) &&
+            password === claveValida &&
+            campaña === campañaValida
+        ) {
+            history.push('/index_Amd.html'); // Ruta relativa a la página 2
+            alert('Registro exitoso. ¡Bienvenido!');
+        } else {
+            alert('Error en el registro. Verifica los datos ingresados.');
+        }
+    }
     return (
         <div>
             <form id="loginform">

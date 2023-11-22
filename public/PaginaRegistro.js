@@ -22,15 +22,16 @@ function PaginaRegistro() {
         const claveValida = '123456';
         const campañaValida = 'paneles';
 
-        if (
-            extensionesValidas.includes(usuario) &&
-            password === claveValida &&
-            campaña === campañaValida
-        ) {
-            history.push('/index_1.html'); // Ruta relativa a la página 2
-            alert('Registro exitoso. ¡Bienvenido!');
+        if (extensionesValidas.includes(usuario) && password === claveValida) {
+            if (campaña === "paneles") {
+                window.location.href = "./index_1.html";
+            } else if (campaña === "admin") {
+                window.location.href = "./index_Amd.html";
+            } else {
+                alert("Error en el registro. Campaña no válida.");
+            }
         } else {
-            alert('Error en el registro. Verifica los datos ingresados.');
+            alert("Error en el registro. Verifica los datos ingresados.");
         }
     }
 

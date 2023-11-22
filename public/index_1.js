@@ -1,19 +1,39 @@
 class MarcadorPredictivo {
   constructor() {
     this.numeroActual = '';
+    this.llamadaActiva = false;
   }
 
   marcar() {
-    if (this.numeroActual !== '') {
+    if (this.numeroActual !== '' && !this.llamadaActiva) {
       console.log('Marcando ' + this.numeroActual + '...');
-      // Lógica para realizar la llamada saliente utilizando una API o biblioteca de telefonía
+      this.simularLlamadaSaliente();
+    } else if (this.llamadaActiva) {
+      console.log('Ya hay una llamada activa.');
     } else {
       console.log('No se ha ingresado un número para marcar.');
     }
   }
 
+  simularLlamadaSaliente() {
+    this.llamadaActiva = true;
+    setTimeout(() => {
+      console.log('Llamada realizada con éxito.');
+      this.llamadaActiva = false;
+      this.simularLlamadaEntrante();
+    }, 2000); // Simula una llamada que dura 2 segundos
+  }
+
+  simularLlamadaEntrante() {
+    setTimeout(() => {
+      const numeroEntrante = '987654321'; // Número simulado
+      console.log('Llamada entrante de ' + numeroEntrante);
+      this.recibirLlamada(numeroEntrante);
+    }, 2000); // Simula una pausa antes de la llamada entrante
+  }
+
   recibirLlamada(numero) {
-    console.log('Llamada entrante de ' + numero);
+    console.log('Recibiendo llamada de ' + numero);
     // Lógica para atender la llamada entrante y realizar las acciones necesarias
   }
 
@@ -78,6 +98,7 @@ function enviarCita() {
     console.log('Enviar cita por chat interno: ' + textoChatInterno);
   }
 }
+
 // Evento de carga para iniciar CallBucDial
 window.addEventListener('load', () => {
   llamar();
@@ -99,12 +120,41 @@ opcionesCalificacion.forEach(opcion => {
 
 // Función para agregar un número al cuadro de "Llamada Manual"
 function agregarNumeroLlamadaManual(numero) {
-  var cuadroLlamadaManual = document.getElementById("numeroTelefono");
+  var cuadroLlamadaManual = document.getElementById('numeroTelefono');
   cuadroLlamadaManual.value += numero;
 }
 
 function finalizarSesion() {
-  window.location.href = "./index.html";
+  window.location.href = './index.html';
 }
 
 
+function registrar() {
+  var extensionesValidas = ["101", "102", "103"];
+  var claveValida = "123456";
+
+  var usuario = document.getElementById("usuario").value;
+  var password = document.getElementById("password").value;
+  var campaña = document.getElementById("campaña").value;
+
+  if (extensionesValidas.includes(usuario) && password === claveValida) {
+    if (campaña === "paneles") {
+      window.location.href = "./index_1.html";
+    } else if (campaña === "admin") {
+      window.location.href = "./index_Amd.html";
+    } else {
+      alert("Error en el registro. Campaña no válida.");
+    }
+  } else {
+    alert("Error en el registro. Verifica los datos ingresados.");
+  }
+}
+function opcionAdmin1() {
+  // Implementa la lógica para la Opción Admin 1
+  alert("Opción Admin 1 seleccionada");
+}
+
+function opcionAdmin2() {
+  // Implementa la lógica para la Opción Admin 2
+  alert("Opción Admin 2 seleccionada");
+}
